@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Add record - Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <nav id="navbar"></nav>
+
+    <main class="mx-auto max-w-2xl space-y-6 p-4">
+      <h1 id="title" class="text-2xl font-bold">Add record</h1>
+
+      <p id="no-habits" class="hidden rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-zinc-400">
+        You need a habit before you can add a record.
+        <a href="add-habit.html" class="text-red-400 underline">Add a habit</a>
+      </p>
+
+      <form id="record-form" class="space-y-4 rounded-lg border border-zinc-800 bg-zinc-900 p-4">
+        <label class="flex flex-col gap-1 text-sm text-zinc-400">
+          Habit
+          <select
+            name="habit"
+            required
+            class="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 focus:border-red-500 focus:outline-none disabled:opacity-60"
+          ></select>
+        </label>
+        <label class="flex flex-col gap-1 text-sm text-zinc-400">
+          Date
+          <input
+            type="date"
+            name="date"
+            required
+            class="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 focus:border-red-500 focus:outline-none disabled:opacity-60"
+          />
+        </label>
+        <label class="flex flex-col gap-1 text-sm text-zinc-400">
+          Score (0-100)
+          <input
+            type="number"
+            name="score"
+            required
+            min="0"
+            max="100"
+            step="1"
+            class="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 focus:border-red-500 focus:outline-none"
+          />
+        </label>
+
+        <p id="error" class="hidden rounded border border-red-800 bg-red-950 px-3 py-2 text-red-300"></p>
+
+        <div class="flex flex-wrap gap-2">
+          <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500">
+            Save
+          </button>
+          <a id="cancel" href="index.html" class="inline-block rounded border border-zinc-700 px-4 py-2 hover:bg-zinc-800">
+            Cancel
+          </a>
+        </div>
+      </form>
+    </main>
+
+    <script type="module" src="js/add-record.js"></script>
+  </body>
+</html>

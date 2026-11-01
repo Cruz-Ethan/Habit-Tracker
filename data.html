@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Stored data - Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <nav id="navbar"></nav>
+
+    <main class="mx-auto max-w-5xl space-y-6 p-4">
+      <header class="flex flex-wrap items-center justify-between gap-3">
+        <h1 class="text-2xl font-bold">Stored data</h1>
+        <div class="flex flex-wrap gap-2">
+          <button id="refresh" class="inline-block rounded border border-zinc-700 px-4 py-2 hover:bg-zinc-800">
+            Refresh
+          </button>
+          <button
+            data-copy="all"
+            aria-label="Copy all"
+            title="Copy all"
+            class="inline-flex items-center gap-2 rounded bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500"
+          >
+            <span data-icon></span>
+            All
+          </button>
+        </div>
+      </header>
+
+      <p class="text-sm text-zinc-400">
+        The habits and records saved in this browser's local storage. Any other keys stored for this site are not shown.
+        Edits are only saved when you press Save.
+      </p>
+      <p id="copy-status" class="sr-only" aria-live="polite"></p>
+
+      <section class="space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-xl font-semibold">
+            Habits <span id="habits-count" class="text-sm font-normal text-zinc-400"></span>
+          </h2>
+          <div class="flex items-center gap-2">
+            <button data-edit="habits" class="rounded border border-zinc-700 px-3 py-1.5 text-sm hover:bg-zinc-800">
+              Edit
+            </button>
+            <button
+              data-copy="habits"
+              aria-label="Copy habits"
+              title="Copy habits"
+              class="rounded border border-zinc-700 p-1.5 hover:bg-zinc-800"
+            >
+              <span data-icon></span>
+            </button>
+          </div>
+        </div>
+        <pre
+          id="habits-view"
+          tabindex="0"
+          class="max-h-96 overflow-auto rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-sm text-zinc-300"
+        ><code id="habits-json"></code></pre>
+        <form id="habits-form" class="hidden space-y-3">
+          <textarea
+            id="habits-editor"
+            aria-label="Habits JSON"
+            spellcheck="false"
+            class="h-96 w-full resize-y rounded-lg border border-zinc-700 bg-zinc-800 p-4 font-mono text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+          ></textarea>
+          <p
+            id="habits-error"
+            role="alert"
+            class="hidden whitespace-pre-line rounded border border-red-800 bg-red-950 px-3 py-2 text-red-300"
+          ></p>
+          <div class="flex flex-wrap gap-2">
+            <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500">
+              Save
+            </button>
+            <button
+              type="button"
+              id="habits-cancel"
+              class="inline-block rounded border border-zinc-700 px-4 py-2 hover:bg-zinc-800"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-xl font-semibold">
+            Records <span id="records-count" class="text-sm font-normal text-zinc-400"></span>
+          </h2>
+          <div class="flex items-center gap-2">
+            <button data-edit="records" class="rounded border border-zinc-700 px-3 py-1.5 text-sm hover:bg-zinc-800">
+              Edit
+            </button>
+            <button
+              data-copy="records"
+              aria-label="Copy records"
+              title="Copy records"
+              class="rounded border border-zinc-700 p-1.5 hover:bg-zinc-800"
+            >
+              <span data-icon></span>
+            </button>
+          </div>
+        </div>
+        <pre
+          id="records-view"
+          tabindex="0"
+          class="max-h-96 overflow-auto rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-sm text-zinc-300"
+        ><code id="records-json"></code></pre>
+        <form id="records-form" class="hidden space-y-3">
+          <textarea
+            id="records-editor"
+            aria-label="Records JSON"
+            spellcheck="false"
+            class="h-96 w-full resize-y rounded-lg border border-zinc-700 bg-zinc-800 p-4 font-mono text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+          ></textarea>
+          <p
+            id="records-error"
+            role="alert"
+            class="hidden whitespace-pre-line rounded border border-red-800 bg-red-950 px-3 py-2 text-red-300"
+          ></p>
+          <div class="flex flex-wrap gap-2">
+            <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500">
+              Save
+            </button>
+            <button
+              type="button"
+              id="records-cancel"
+              class="inline-block rounded border border-zinc-700 px-4 py-2 hover:bg-zinc-800"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="js/data.js"></script>
+  </body>
+</html>

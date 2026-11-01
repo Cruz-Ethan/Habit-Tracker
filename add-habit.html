@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Add habit - Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <nav id="navbar"></nav>
+
+    <main class="mx-auto max-w-2xl space-y-6 p-4">
+      <h1 id="title" class="text-2xl font-bold">Add habit</h1>
+
+      <form id="habit-form" class="space-y-4 rounded-lg border border-zinc-800 bg-zinc-900 p-4">
+        <label class="flex flex-col gap-1 text-sm text-zinc-400">
+          Name
+          <input
+            name="name"
+            required
+            maxlength="60"
+            class="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 focus:border-red-500 focus:outline-none"
+          />
+        </label>
+        <label class="flex flex-col gap-1 text-sm text-zinc-400">
+          Description (optional)
+          <textarea
+            name="description"
+            rows="3"
+            class="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 focus:border-red-500 focus:outline-none"
+          ></textarea>
+        </label>
+        <div class="flex flex-wrap gap-2">
+          <button type="submit" class="inline-block rounded bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500">
+            Save
+          </button>
+          <a id="cancel" href="index.html" class="inline-block rounded border border-zinc-700 px-4 py-2 hover:bg-zinc-800">
+            Cancel
+          </a>
+        </div>
+      </form>
+    </main>
+
+    <script type="module" src="js/add-habit.js"></script>
+  </body>
+</html>

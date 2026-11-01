@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Record - Habit Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <nav id="navbar"></nav>
+
+    <main class="mx-auto max-w-2xl space-y-6 p-4">
+      <p id="not-found" class="hidden rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-zinc-400">
+        Record not found.
+        <a href="index.html" class="text-red-400 underline">Back to dashboard</a>
+      </p>
+
+      <article id="content" class="hidden space-y-6 rounded-lg border border-zinc-800 bg-zinc-900 p-6">
+        <h1 class="text-2xl font-bold">Record</h1>
+
+        <dl class="space-y-4">
+          <div>
+            <dt class="text-sm text-zinc-400">Habit</dt>
+            <dd><a id="habit-link" class="text-lg text-red-400 hover:underline"></a></dd>
+          </div>
+          <div>
+            <dt class="text-sm text-zinc-400">Date</dt>
+            <dd id="date" class="text-lg"></dd>
+          </div>
+          <div>
+            <dt class="text-sm text-zinc-400">Score</dt>
+            <dd class="text-4xl font-bold text-red-400"><span id="score"></span><span class="text-lg text-zinc-500"> / 100</span></dd>
+          </div>
+        </dl>
+
+        <div class="flex flex-wrap gap-2">
+          <a id="back" class="inline-block rounded border border-zinc-700 px-4 py-2 hover:bg-zinc-800">Back to habit</a>
+          <a id="edit" class="inline-block rounded bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500">Edit</a>
+          <button id="delete" class="inline-block rounded border border-red-800 px-4 py-2 text-red-400 hover:bg-red-950">
+            Delete
+          </button>
+        </div>
+      </article>
+    </main>
+
+    <script type="module" src="js/record.js"></script>
+  </body>
+</html>
